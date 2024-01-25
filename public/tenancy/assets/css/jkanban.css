@@ -1,0 +1,179 @@
+.kanban-container {
+
+  box-sizing: border-box;
+  width: auto;
+}
+
+.kanban-container * {
+  box-sizing: border-box;
+}
+
+.kanban-container:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.kanban-board {
+
+display: inline-table;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+
+  text-align: center;
+}
+
+.kanban-board.disabled-board {
+  opacity: 0.3;
+}
+
+.kanban-board.is-moving.gu-mirror {
+  transform: rotate(5deg);
+}
+
+.kanban-board.is-moving.gu-mirror .kanban-drag {
+  overflow: hidden;
+  padding-right: 50px;
+}
+
+.kanban-board header {
+  font-size: 16px;
+  padding: 15px;
+}
+
+.kanban-board header .kanban-title-board {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+     
+    margin-bottom: 10px;
+/*  display: inline;*/
+}
+
+.kanban-board header .kanban-title-button {
+/*  float: right;*/
+}
+
+.kanban-board .kanban-drag {
+    height: 60vh;
+    min-height: 60vh;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.kanban-board:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.kanban-item {
+  border-radius: 10px;
+  font-size: 13px;
+
+cursor: pointer;
+
+  margin-bottom: 20px;
+      transition: all 0.5s ease-in-out;
+/*  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  animation: append-animate 0.3s cubic-bezier(0.23, 1, 0.32, 1);*/
+}
+.drag_handler{
+ cursor: pointer;   
+}
+
+@keyframes append-animate {
+	from {
+		transform: translateY(-20px);
+	}
+	to {
+		transform: translateY(0px);
+	}
+}
+
+
+.kanban-item:last-child {
+  margin: 0;
+}
+
+.kanban-item.is-moving.gu-mirror {
+  transform: rotate(3deg) scale(1.1);
+
+  height: auto !important;
+
+ transition: all 0.5s ease-in-out;
+}
+
+/* Dragula CSS  */
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+}
+
+.gu-hide {
+  display: none !important;
+}
+
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+.gu-transit {
+  opacity: 0.2 !important;
+  transform: rotate(0deg) !important;
+}
+
+.drag_handler {
+    background: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    float: left;
+    top: -3px;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+
+
+.drag_handler_icon {
+    position: relative;
+    display: block;
+    background: #000;
+    width: 24px;
+    height: 2px;
+    top: 12px;
+ 
+}
+
+.drag_handler_icon:before,
+.drag_handler_icon:after {
+    background: #000;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: .5s ease-in-out;
+}
+
+ .drag_handler_icon:before {
+    top: 6px;
+}
+
+.drag_handler_icon:after {
+    bottom: 6px;
+}
+.item_handle{
+ text-align: left;
+padding: 15px;
+ -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
+    
+}
